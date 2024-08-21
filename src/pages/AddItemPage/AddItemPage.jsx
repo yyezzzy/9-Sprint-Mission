@@ -65,6 +65,7 @@ const AddItemPage = () => {
   };
 
   const handleKeyDown = (e) => {
+    if (e.nativeEvent.isComposing) return;
     if (e.key === 'Enter' && formData.productTags.trim() !== '') {
       e.preventDefault();
       setTags([...tags, formData.productTags.trim()]);
