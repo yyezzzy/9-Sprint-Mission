@@ -3,6 +3,7 @@ import { getItems } from '../../../api/api';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import '../MarketPage.css';
 import { PagenationBar } from './PagenationBar';
+import { NavLink } from 'react-router-dom';
 
 const PAGESIZE_DEFAULT = 10; // 데스크탑 사이즈 기본 페이지 사이즈
 const PAGESIZE_TABLET = 6; // 태블릿 사이즈 페이지 사이즈
@@ -67,17 +68,20 @@ const AllItem = ({ searchKeyword, orderBy }) => {
     <div>
       <div className="All-Items">
         {items.map((item) => (
-          <div className="Item" key={item.id}>
-            <img className="All-Item-Img" src={item.images} alt={item.name} width="200" />
-            <p>{item.name}</p>
-            <p>{item.price.toLocaleString()}원</p>
-            <p className="Favorite">
-              <FavoriteBorderIcon />
-              {item.favoriteCount}
-            </p>
-          </div>
+          <NavLink to={`/product/${item.id}`} key={item.id}>
+            <div className="Item">
+              <img className="All-Item-Img" src={item.images} alt={item.name} width="200" />
+              <p>{item.name}</p>
+              <p>{item.price.toLocaleString()}원</p>
+              <p className="Favorite">
+                <FavoriteBorderIcon />
+                {item.favoriteCount}
+              </p>
+            </div>
+          </NavLink>
         ))}
       </div>
+
       <PagenationBar totalPages={totalPages} onPageChange={handlePageChange} />
       {/* <PagenationButton /> */}
     </div>

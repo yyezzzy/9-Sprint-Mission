@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getItems } from '../../../api/api';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import '../MarketPage.css';
+import { NavLink } from 'react-router-dom';
 
 const PAGESIZE_DEFAULT = 4; // 데스크탑 사이즈 페이지 사이즈
 const PAGESIZE_TABLET = 2; // 태블릿 사이즈 페이지 사이즈
@@ -54,15 +55,17 @@ const BestItem = () => {
   return (
     <div className="Best-Items">
       {bestItems.map((item) => (
-        <div key={item.id} className="Item">
-          <img className="Best-Item-Img" src={item.images} alt={item.name} width="282" />
-          <p>{item.name}</p>
-          <p>{item.price.toLocaleString()}원</p>
-          <p className="Favorite">
-            <FavoriteBorderIcon />
-            {item.favoriteCount}
-          </p>
-        </div>
+        <NavLink to={`/product/${item.id}`} key={item.id}>
+          <div key={item.id} className="Item">
+            <img className="Best-Item-Img" src={item.images} alt={item.name} width="282" />
+            <p>{item.name}</p>
+            <p>{item.price.toLocaleString()}원</p>
+            <p className="Favorite">
+              <FavoriteBorderIcon />
+              {item.favoriteCount}
+            </p>
+          </div>
+        </NavLink>
       ))}
     </div>
   );
