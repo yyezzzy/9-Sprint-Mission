@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './AddItemPage.css';
 import '../MarketPage/MarketPage.css';
-import { ImageUpLoad } from 'components/ImageUpLoad';
+import { ImageUpLoad } from 'common/ImageUpLoad';
 import styled from 'styled-components';
-import { TagChip } from 'components/TagChip';
+import { TagChip } from 'common/TagChip';
 
 const InputStyle = styled.input`
   border-radius: 12px;

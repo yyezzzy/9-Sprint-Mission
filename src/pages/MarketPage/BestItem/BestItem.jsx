@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getItems } from '../../../api/api';
+import { getItems } from '../../../shared/api/api';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import '../MarketPage.css';
 import { NavLink } from 'react-router-dom';

@@ -37,3 +37,13 @@ export const getDetailItem = async (id) => {
     throw new Error('데이터를 불러오지 못했습니다.');
   }
 };
+
+//게시글의 댓글 목록 조회
+export const getComments = async (id) => {
+  try {
+    const response = await api.get(`/products/${id}/comments`);
+    return response.data;
+  } catch (error) {
+    throw new Error('데이터를 불러오지 못했습니다.');
+  }
+};

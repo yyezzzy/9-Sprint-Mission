@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import SearchInput from '../../components/SearchInput';
-import SelectBox from '../../components/SelectBox';
+import SearchInput from '../../common/SearchInput';
+import SelectBox from '../../common/SelectBox';
 import './MarketPage.css';
-import AllItem from './components/AllItem.jsx';
-import BestItem from './components/BestItem.jsx';
+import AllItem from './AllItem/AllItem.jsx';
+import BestItem from './BestItem/BestItem.jsx';
 import { useState } from 'react';
 
 const MarketPage = () => {

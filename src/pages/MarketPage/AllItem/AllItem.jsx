@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { getItems } from '../../../api/api';
+import { getItems } from '../../../shared/api/api';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import '../MarketPage.css';
-import { PagenationBar } from './PagenationBar';
+import { PagenationBar } from '../components/Pagenation/PagenationBar';
 import { NavLink } from 'react-router-dom';
 
 const PAGESIZE_DEFAULT = 10; // 데스크탑 사이즈 기본 페이지 사이즈
