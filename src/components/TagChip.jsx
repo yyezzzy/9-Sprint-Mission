@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ic_imgdel from '../api/assets/images/icons/ic_imgdel.png';
+import ic_imgdel from '../assets/images/icons/ic_imgdel.png';
 
 const Chip = styled.div`
   display: flex;

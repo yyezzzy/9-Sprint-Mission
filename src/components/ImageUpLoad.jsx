@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
-import ic_plus from '../api/assets/images/icons/ic_plus.png';
-import ic_imgdel from '../api/assets/images/icons/ic_imgdel.png';
+import ic_plus from '../assets/images/icons/ic_plus.png';
+import ic_imgdel from '../assets/images/icons/ic_imgdel.png';
 import styled from 'styled-components';
 import '../pages/AddItemPage/AddItemPage.css';
 
