@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { getItems } from '../../../shared/api/api';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import '../MarketPage.css';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { getItems } from "../../../shared/api/api";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import "../MarketPage.css";
+import { NavLink } from "react-router-dom";
 
 const PAGESIZE_DEFAULT = 4; // 데스크탑 사이즈 페이지 사이즈
 const PAGESIZE_TABLET = 2; // 태블릿 사이즈 페이지 사이즈
@@ -19,14 +19,14 @@ const BestItem = () => {
       const { list } = data;
       setBestItems(list);
     } catch (error) {
-      console.error('Failed to fetch best items', error);
+      console.error("Failed to fetch best items", error);
     }
   };
 
   // handleResize에 의해서 pageSize가 변경되면 데이터를 다시 로드
   // pageSize가 변경되면 useEffect가 실행되고 handleBestDataLoad가 실행되어 데이터를 다시 로드
   useEffect(() => {
-    handleBestDataLoad({ pageSize, orderBy: 'favorite', keyword: '' });
+    handleBestDataLoad({ pageSize, orderBy: "favorite", keyword: "" });
   }, [pageSize]);
 
   useEffect(() => {
@@ -46,18 +46,23 @@ const BestItem = () => {
     handleResize();
 
     // 첫로드시 resize이벤트를 등록하고 handleResize실행
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup 함수
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [pageSize]);
 
   return (
     <div className="Best-Items">
       {bestItems.map((item) => (
-        <NavLink to={`/product/${item.id}`} key={item.id}>
+        <NavLink to={`/products/${item.id}`} key={item.id}>
           <div key={item.id} className="Item">
-            <img className="Best-Item-Img" src={item.images} alt={item.name} width="282" />
+            <img
+              className="Best-Item-Img"
+              src={item.images}
+              alt={item.name}
+              width="282"
+            />
             <p>{item.name}</p>
             <p>{item.price.toLocaleString()}원</p>
             <p className="Favorite">

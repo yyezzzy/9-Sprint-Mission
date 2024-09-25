@@ -1,8 +1,8 @@
-import { useState, useRef } from 'react';
-import ic_plus from '../assets/images/icons/ic_plus.png';
-import ic_imgdel from '../assets/images/icons/ic_imgdel.png';
-import styled from 'styled-components';
-import '../pages/AddItemPage/AddItemPage.css';
+import { useState, useRef } from "react";
+import ic_plus from "../assets/images/icons/ic_plus.png";
+import ic_imgdel from "../assets/images/icons/ic_imgdel.png";
+import styled from "styled-components";
+import "../pages/AddItem/AddItemPage.css";
 
 const StyledImageContainer = styled.div`
   position: relative;
@@ -111,7 +111,7 @@ export const ImageUpLoad = () => {
     const newUploadImgUrls = uploadImgUrls.filter((_, i) => i !== index);
     setUploadImgUrls(newUploadImgUrls);
     if (fileInputRef.current) {
-      fileInputRef.current.value = ''; // input 초기화
+      fileInputRef.current.value = ""; // input 초기화
     }
   };
 
@@ -132,9 +132,18 @@ export const ImageUpLoad = () => {
             </DeleteButton>
           </StyledImageContainer>
         ))}
-        <StyledInput id="fileUpload" type="file" accept="image/*" multiple onChange={onchangeImageUpload} ref={fileInputRef} />
+        <StyledInput
+          id="fileUpload"
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={onchangeImageUpload}
+          ref={fileInputRef}
+        />
       </div>
-      {error && <ErrorMessage>*이미지 등록은 최대 3개까지 가능합니다.</ErrorMessage>}
+      {error && (
+        <ErrorMessage>*이미지 등록은 최대 3개까지 가능합니다.</ErrorMessage>
+      )}
     </div>
   );
 };

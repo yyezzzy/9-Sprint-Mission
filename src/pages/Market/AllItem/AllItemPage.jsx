@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { getItems } from '../../../shared/api/api';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import '../MarketPage.css';
-import { PagenationBar } from '../components/Pagenation/PagenationBar';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from "react";
+import { getItems } from "../../../shared/api/api";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import "../MarketPage.css";
+import { PagenationBar } from "../components/Pagenation/PagenationBar";
+import { NavLink } from "react-router-dom";
 
 const PAGESIZE_DEFAULT = 10; // 데스크탑 사이즈 기본 페이지 사이즈
 const PAGESIZE_TABLET = 6; // 태블릿 사이즈 페이지 사이즈
@@ -15,9 +15,13 @@ const AllItem = ({ searchKeyword, orderBy }) => {
   const [totalCount, setTotalCount] = useState(0);
   const [pageSize, setPageSize] = useState(null);
   // 총 페이지 수 계산
-  const totalPages = pageSize && totalCount ? Math.ceil(totalCount / pageSize) : 0;
+  const totalPages =
+    pageSize && totalCount ? Math.ceil(totalCount / pageSize) : 0;
 
-  const QUERY = useMemo(() => ({ page, pageSize, orderBy, keyword: searchKeyword }), [page, pageSize, orderBy, searchKeyword]);
+  const QUERY = useMemo(
+    () => ({ page, pageSize, orderBy, keyword: searchKeyword }),
+    [page, pageSize, orderBy, searchKeyword]
+  );
 
   // 데이터 로딩 함수
   const handleAllDataLoad = async (QUERY) => {
@@ -27,7 +31,7 @@ const AllItem = ({ searchKeyword, orderBy }) => {
       setItems(list);
       setTotalCount(totalCount);
     } catch (error) {
-      console.error('Failed to fetch items', error);
+      console.error("Failed to fetch items", error);
     }
   };
 
@@ -55,10 +59,10 @@ const AllItem = ({ searchKeyword, orderBy }) => {
     handleResize();
 
     // 이벤트 리스너 등록
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup 함수
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // 페이지 변경 핸들러
@@ -68,9 +72,14 @@ const AllItem = ({ searchKeyword, orderBy }) => {
     <div>
       <div className="All-Items">
         {items.map((item) => (
-          <NavLink to={`/product/${item.id}`} key={item.id}>
+          <NavLink to={`/products/${item.id}`} key={item.id}>
             <div className="Item">
-              <img className="All-Item-Img" src={item.images} alt={item.name} width="200" />
+              <img
+                className="All-Item-Img"
+                src={item.images}
+                alt={item.name}
+                width="200"
+              />
               <p>{item.name}</p>
               <p>{item.price.toLocaleString()}원</p>
               <p className="Favorite">

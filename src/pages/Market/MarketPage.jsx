@@ -1,14 +1,14 @@
-import { NavLink } from 'react-router-dom';
-import SearchInput from '../../common/SearchInput';
-import SelectBox from '../../common/SelectBox';
-import './MarketPage.css';
-import AllItem from './AllItem/AllItem.jsx';
-import BestItem from './BestItem/BestItem.jsx';
-import { useState } from 'react';
+import { NavLink } from "react-router-dom";
+import SearchInput from "../../common/SearchInput";
+import SelectBox from "../../common/SelectBox";
+import "./MarketPage.css";
+import AllItem from "./AllItem/AllItemPage.jsx";
+import BestItem from "./BestItem/BestItem.jsx";
+import { useState } from "react";
 
 const MarketPage = () => {
-  const [searchKeyword, setSearchKeyword] = useState('');
-  const [orderBy, setOrderBy] = useState('recent');
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [orderBy, setOrderBy] = useState("recent");
 
   const handleSearchChange = (e) => {
     console.log(e.target.value);
